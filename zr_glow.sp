@@ -28,7 +28,7 @@ public void Event_RoundStart(Event event, char[] name, bool dontBroadcast)
 	first = true;
 }
 
-public ZR_OnClientInfected(client, attacker, bool:motherInfect, bool:respawnOverride, bool:respawn)
+public ZR_OnClientInfected(int client,int attacker, bool motherInfect, bool respawnOverride, bool respawn)
 {
 	if(first)
 	{
@@ -42,7 +42,7 @@ public ZR_OnClientInfected(client, attacker, bool:motherInfect, bool:respawnOver
 	UnhookGlow(client);
 }
 
-public ZR_OnClientHumanPost(client, bool:respawn, bool:protect)
+public ZR_OnClientHumanPost(int client, bool respawn, bool protect)
 {
 	// remove and re create all glow models for prevent this bug https://forums.alliedmods.net/showthread.php?t=280484
 	for( int i = 1; i <= MaxClients; i++ )
