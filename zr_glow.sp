@@ -23,19 +23,19 @@ public void OnPluginStart()
 
 public void Event_RoundStart(Event event, char[] name, bool dontBroadcast)
 {
-	for( new i = 1; i <= MaxClients; i++ )
+	for( int i = 1; i <= MaxClients; i++ )
 		if (IsClientInGame(i) && IsPlayerAlive(i))SetupGlowSkin(i);
 }
 
-public ZR_OnClientInfected(client, attacker, bool:motherInfect, bool:respawnOverride, bool:respawn)
+public ZR_OnClientInfected(int client,int attacker, bool motherInfect, bool respawnOverride, bool respawn)
 {
 	UnhookGlow(client);
 }
 
-public ZR_OnClientHumanPost(client, bool:respawn, bool:protect)
+public ZR_OnClientHumanPost(int client, bool respawn, bool protect)
 {
 	//SetupGlowSkin(client);
-	for( new i = 1; i <= MaxClients; i++ )
+	for( int i = 1; i <= MaxClients; i++ )
 		if (IsClientInGame(i) && IsPlayerAlive(i) && ZR_IsClientHuman(i))SetupGlowSkin(i);
 }
 
